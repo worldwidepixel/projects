@@ -1,0 +1,376 @@
+<html>
+	<head>
+		<title>Name-ify - claim your style</title>
+		<link rel="icon" type="image/png" href="./nameify.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+	</head>
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+	body {
+	  font-family: 'Inter', sans-serif;
+
+
+
+
+	  .magic {
+	    text-decoration: line-through; text-decoration-style: wavy;
+	  }
+
+	  .heavy {
+	    font-weight: 900;
+	  }
+
+	  .strike {
+	    text-decoration: line-through;
+	  }
+
+	  .under {
+	    text-decoration: underline;
+	  }
+
+	  .italic {
+	    font-style: italic;
+	  }
+
+	  /* COLOURS */
+
+	  .render .blue {
+	    color: #00c;
+	  }
+
+	  .render .green {
+	    color: #090;
+	  }
+
+	  .render .darkaqua {
+	    color: #0aa;
+	  }
+
+	  .render .red {
+	    color: #b00;
+	  }
+
+	  .render .purple {
+	    color: #909;
+	  }
+
+	  .render .orange {
+	    color: #d60;
+	  }
+
+	  .render .gray {
+	    color: #999;
+	  }
+
+	  .render .darkgray {
+	    color: #555;
+	  }
+
+	  .render .lightblue {
+	    color: #66f;
+	  }
+
+	  .render .black {
+	    color: #000;
+	  }
+
+	  .render .lime {
+	    color: #0f0;
+	  }
+
+	  .render .aqua {
+	    color: #0ff;
+	  }
+
+	  .render .lightred {
+	    color: #f55;
+	  }
+
+	  .render .pink {
+	    color: #c0f;
+	  }
+
+	  .render .yellow {
+	    color: #ff0;
+	  }
+
+	  .render .white {
+	    color: #fff;
+
+			    .hex-color { color: #000000; }
+	  }
+	}
+	.title {
+	  font-weight:800;
+	  font-size:80;
+	  margin-top:2.5%;
+	  letter-spacing:-5px;
+	}
+	.subtitle {
+	  font-weight:200;
+	  font-size:40;
+	  letter-spacing:-2;
+	  margin-top:-50px;
+	}
+	.nameput {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:bold;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  width:50%;
+	  transition-duration:0.4s;
+	      height:inherit;
+	}
+	.nameput:use {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:bold;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#a0a5ad;
+	  font-size:20px;
+	  border-style:solid;
+	  box-shadow:none;
+	  width:50%;
+	  height:inherit;
+	  transition-duration:0.4s;
+	}
+	.output {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:400;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  width:50%;
+	  transition-duration:0.4s;
+	  height:inherit;
+	}
+	.gray {
+	    color:gray;
+	    text-align:left;
+	    }
+	.copy {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:900;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.copy:hover {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		background-color: #ff805b;
+		padding:10px;
+		color:white;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#ffa734;
+		font-size:25px;
+		border-style:solid;
+		transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.copy:active {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		background-color: #fe57a1;
+		padding:10px;
+		color:white;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#cb4580;
+		font-size:22.5px;
+		border-style:solid;
+		transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.center {
+		text-align: left;
+		margin:auto;
+	}
+
+	  .copy-tooltip {
+	    position: absolute;
+	    top: 10;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    background-color: rgba(0, 0, 0, 0.8);
+	    color: #fff;
+	    padding: 5px 10px;
+	    border-radius: 5px;
+	    opacity: 0;
+	    pointer-events: none;
+	    transition: opacity 0.3s ease;
+	  }
+
+		.fimg {
+			height:30px;
+			translate: 0px 7.5px;
+		}
+
+	</style>
+	<body>
+
+		<center>
+		<h1 class="title">Name-ify</h1>
+		<h1 class="subtitle">claim your style, easily.</h1>
+
+
+		<div id="entry">
+	      <input placeholder="Enter nickname and formatting here" id="input" class="nameput" name="input" />
+	  </div>
+
+			<br><br>
+
+</center>
+
+			<div class="center" id=render>
+		      <p class="center output render" id="outputPanel"><span class="gray">Nickname with formatting will show up here</span></p><br>
+		  </div>
+	<!--		<button class="copy" onclick="copyToClipboard()">Copy for /nick command</button> -->
+	<center>
+	    <button class="copy" onclick="copyToClipboard()">Copy with /nick</button>
+    <div class="copy-tooltip" id="copyTooltip">Text Copied!</div>
+		</div>
+
+
+		<div>
+		<br>
+		<h2 style="font-weight:500;"><img class="fimg" src="./nameify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v3.0</a></h2>
+		</div>
+
+</center>
+		<script>
+		var color = {
+      '1': 'blue',
+      '2': 'green',
+      '3': 'darkaqua',
+      '4': 'red',
+      '5': 'purple',
+      '6': 'orange',
+      '7': 'gray',
+      '8': 'darkgray',
+      '9': 'lightblue',
+      '0': 'black',
+      'a': 'lime',
+      'b': 'aqua',
+      'c': 'lightred',
+      'd': 'pink',
+      'e': 'yellow',
+      'f': 'white'
+    };
+
+    var input = $('#input');
+    var output = $('#outputPanel');
+    var append;
+
+    $(document).ready(function() {
+      input.keyup(function() {
+        render($(this).val());
+      });
+    });
+
+    function setColor(match) {
+      // Check if it's a valid Minecraft color code
+      var value = color[match.charAt(1)];
+      if (value) {
+        addClose();
+        return '<span class="' + value + '">';
+      } else {
+        // Check if it's a valid hex color code
+        var hexColorMatch = /^&#([0-9A-Fa-f]{6})$/;
+        var hexColor = match.match(hexColorMatch);
+        if (hexColor) {
+          addClose();
+          return '<span class="hex-color" style="color: #' + hexColor[1] + ';">';
+        } else {
+          // If not a valid color code or hex code, preserve the special characters as text
+          return '&' + match.slice(1); // Escape the ampersand and preserve the rest
+        }
+      }
+    }
+
+    function replacers(string) {
+      replaced = string
+        .replace(/&([a-f0-9]|\#[0-9A-Fa-f]{6})/gi, setColor)
+        .replace(/&k/gi, '<text class="magic">')
+        .replace(/&l/gi, '<text class="heavy">')
+        .replace(/&m/gi, '<text class="strike">')
+        .replace(/&n/gi, '<text class="under">')
+        .replace(/&o/gi, '<text class="italic">')
+        .replace(/&r/gi, resetFormat)
+        .replace(/\\n/gi, '<br />');
+      return replaced;
+    }
+
+    function render(string) {
+      append = '';
+      output.html(replacers(string));
+    }
+
+    function resetFormat(match) {
+      addClose();
+      return '<text></text></text></text><span class="black">';
+    }
+
+    function addClose() {
+      append = '</span>' + append;
+    }
+
+    function copyNoNickToClipboard() {
+      const inputText = document.querySelector('.nameput').value;
+      const textarea = document.createElement('textarea');
+      textarea.value = inputText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Copied to clipboard!');
+    }
+
+    function copyToClipboard() {
+      const inputText = document.querySelector('.nameput').value;
+      const copyText = `/nick ${inputText}`;
+      const textarea = document.createElement('textarea');
+      textarea.value = copyText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+
+      // Show the copy tooltip for 1.5 seconds
+      const copyTooltip = document.getElementById('copyTooltip');
+      copyTooltip.style.opacity = 1;
+      setTimeout(() => {
+        copyTooltip.style.opacity = 0;
+      }, 1500);
+    }
+		</script>
+
+	</body>
+
+
+
+</html>
