@@ -1,0 +1,600 @@
+<html>
+	<head>
+		<title>Serv-ify - find server info</title>
+		<link rel="icon" type="image/png" href="./servify.png">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+	</head>
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+	body {
+	  font-family: 'Inter', sans-serif;
+
+
+
+
+	  .magic {
+	    text-decoration: line-through; text-decoration-style: wavy;
+	  }
+
+	  .heavy {
+	    font-weight: 900;
+	  }
+
+	  .strike {
+	    text-decoration: line-through;
+	  }
+
+	  .under {
+	    text-decoration: underline;
+	  }
+
+	  .italic {
+	    font-style: italic;
+	  }
+
+	  /* COLOURS */
+
+	  .render .blue {
+	    color: #00c;
+	  }
+
+	  .render .green {
+	    color: #090;
+	  }
+
+	  .render .darkaqua {
+	    color: #0aa;
+	  }
+
+	  .render .red {
+	    color: #b00;
+	  }
+
+	  .render .purple {
+	    color: #909;
+	  }
+
+	  .render .orange {
+	    color: #d60;
+	  }
+
+	  .render .gray {
+	    color: #999;
+	  }
+
+	  .render .darkgray {
+	    color: #555;
+	  }
+
+	  .render .lightblue {
+	    color: #66f;
+	  }
+
+	  .render .black {
+	    color: #000;
+	  }
+
+	  .render .lime {
+	    color: #0f0;
+	  }
+
+	  .render .aqua {
+	    color: #0ff;
+	  }
+
+	  .render .lightred {
+	    color: #f55;
+	  }
+
+	  .render .pink {
+	    color: #c0f;
+	  }
+
+	  .render .yellow {
+	    color: #ff0;
+	  }
+
+	  .render .white {
+	    color: #fff;
+
+			    .hex-color { color: #000000; }
+	  }
+	}
+
+		html {
+	  	scroll-behavior: smooth;
+		}
+
+	.title {
+	  font-weight:800;
+	  font-size:80;
+	  margin-top:2.5%;
+	  letter-spacing:-5px;
+	}
+	.subtitle {
+	  font-weight:200;
+	  font-size:40;
+	  letter-spacing:-2;
+	  margin-top:-50px;
+	}
+	.nameput {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:bold;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  width:50%;
+	  transition-duration:0.4s;
+	      height:inherit;
+	}
+	.nameput:use {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:bold;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#a0a5ad;
+	  font-size:20px;
+	  border-style:solid;
+	  box-shadow:none;
+	  width:50%;
+	  height:inherit;
+	  transition-duration:0.4s;
+	}
+	.output {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:400;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  width:50%;
+	  transition-duration:0.4s;
+	  height:inherit;
+	}
+	.gray {
+	    color:gray;
+	    text-align:left;
+	    }
+	.colourfulButton {
+	  font-family:'Plus Jakarta Sans';
+	  font-weight:900;
+	  padding:10px;
+	  border-width:10px;
+	  border-radius:16px;
+	  border-color:#bec5d1;
+	  font-size:20px;
+	  border-style:solid;
+	  transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.colourfulButton:hover {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		background-color: #ff805b;
+		padding:10px;
+		color:white;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#ffa734;
+		font-size:25px;
+		border-style:solid;
+		transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.colourfulButton:active {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		background-color: #fe57a1;
+		padding:10px;
+		color:white;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#cb4580;
+		font-size:22.5px;
+		border-style:solid;
+		transition-duration:0.4s;
+		cursor: pointer;
+	}
+
+	.center {
+		text-align: left;
+		margin:auto;
+	}
+
+	  .copy-tooltip {
+	    position: absolute;
+	    top: 10;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    background-color: rgba(0, 0, 0, 0.8);
+	    color: #fff;
+	    padding: 5px 10px;
+	    border-radius: 5px;
+	    opacity: 0;
+	    pointer-events: none;
+	    transition: opacity 0.3s ease;
+	  }
+
+		.cooldown-tooltip {
+			background-color: #e22a0d;
+			border-color:#ffa734;
+			color: #fff;
+			width:160px;
+			padding: 5px 10px;
+			border-radius: 10px;
+			border-width: 10px;
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+			border-style: solid;
+		}
+
+		.fimg {
+			height:30px;
+			translate: 0px 7.5px;
+		}
+
+		.resultContainer {
+			background-color:#edf1f5;
+			width: 60%;
+			border-radius: 16px;
+			padding:10px;
+			border-color:#c1d3e3;
+			border-width: 10px;
+			border-style:solid;
+			display: none;
+			opacity: 0;
+			transition-duration: 0.4s;
+		}
+
+/*		.resultContainer:hover {
+			border-color:#fe57a1;
+			transition-duration: 0.4s;
+
+		}*/
+
+		.bold {
+			font-weight: 900;
+			font-size:20px;
+		}
+
+		.light {
+			font-weight: 400;
+			font-size:20px;
+		}
+
+		.iconContainer{
+			background-color:#edf1f5;
+			transition-duration: 0.4s;
+		}
+
+			.imageIcon{
+				border-radius: 16px;
+				border-color:#c1d3e3;
+				border-width: 5px;
+				border-style:solid;
+				transition-duration: 0.4s;
+			}
+			.imageIcon:hover{
+				border-color:#fe57a1;
+				transition-duration: 0.4s;
+			}
+
+			#server-icon {
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				background-color: #345b70;
+				image-rendering: pixelated;
+			}
+
+			.cooldown-tooltip-2{
+				background-color: rgba(0, 0, 0, 0.8);
+			  width: 160px;
+			  position: fixed;
+				left: 50%;
+			  translate: -50%;
+				opacity:0;
+				top:10px;
+				transition-duration: 0.4s;
+				padding:10px;
+				border-radius:16px;
+				color:white;
+			}
+
+	</style>
+	<body>
+
+		<center>
+		<h1 class="title">Serv-ify</h1>
+		<h1 class="subtitle">find server info, easily.</h1>
+
+
+		<div id="entry">
+	      <input placeholder="Enter server IP here" id="input" onkeypress="searchOnEnter(event)" class="nameput ipsearch" name="input" /> <button onclick="copyIP()" class="colourfulButton">Copy IP</button>
+	  </div>
+<p>special thanks to <a href="https://mcapi.us">mcapi.us</a> &bull; fifteen second cooldown on search</p>
+			<br>
+
+</center>
+
+<!--
+			<div class="center" id=render>
+		      <p class="center output render" id="outputPanel"><span class="gray">Nickname with formatting will show up here</span></p><br>
+		  </div> -->
+	<!--		<button class="copy" onclick="copyToClipboard()">Copy for /nick command</button> -->
+	<center>
+		<div class="cooldown-tooltip-2" id="cooldownTooltip">That is on cooldown! Please wait.</div>
+		<div class="cooldown-tooltip-2" id="cooldownFinishedTooltip">Cooldown finished. Enjoy searching!</div>
+
+		<div class="copy-tooltip" id="copyTooltip">IP Copied!</div>
+
+			<button class="colourfulButton" onclick="searchIP()">Search</button>
+			<button class="colourfulButton" onclick="clearSearch()">Reset</button>
+
+
+		</div>
+		<br>
+		<br>
+		<div id="resultContainer" class="resultContainer">
+			<h1>Results</h1>
+		<div class="copy-tooltip" id="copyResultsTooltip">Results Copied!</div>
+			<div><span class="bold">Server Status | <span class="light" id="ipResult">null</span> is <span class="light serverUp">null</span></span><br><br>
+				<span class="bold">Server MOTD | <span class="light" id="motdResult">null</span></span><br><br>
+				<span class="bold">Players Online | there are <span class="light" id="playerResult">null</span> players online</span><br>
+				<div>
+					<br>
+					<div class="iconContainer">
+					<p class="bold">server icon</p>
+					<img class="imageIcon" id="server-icon">
+					</div>
+				</div>
+			</div>
+<br>
+		</div>
+
+
+		<div>
+		<br>
+		<h2 style="font-weight:500;"><img class="fimg" src="./servify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v2.0</a></h2>
+		</div>
+
+</center>
+<!--MCAPI-->
+<script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+<script>
+
+function searchOnEnter(e){
+ var key=e.keyCode || e.which;
+  if (key==13){
+     searchIP();
+  }
+}
+
+function clearSearch() {
+	var resultContainer = document.getElementById("resultContainer");
+	var inway = document.getElementById("input");
+
+		inway.value = "";
+		resultContainer.value = "";
+
+
+	resultContainer.style.opacity = "0";
+
+		   	setTimeout(function(){
+					resultContainer.style.display = "none";
+				}, 40);
+				console.log("Input reset!");
+}
+
+function searchIP() {
+
+
+
+	serverIP = document.querySelector(".ipsearch").value;
+	console.log(serverIP);
+	search = "true";
+	//define variables and begin search process
+
+	if (cooldown !== "true") {
+//start cooldown
+		cooldown = "true"
+		console.log(cooldown)
+
+		setTimeout(function(){
+//end cooldown after 15s
+				cooldown = "false"
+				console.log("cooldown finished");
+				cooldownFinishedTooltip.style.opacity = 1;
+					setTimeout(function(){
+						cooldownFinishedTooltip.style.opacity = "0";
+					}, 2000);
+		}, 15000);
+
+			if (serverIP !== '') {
+//if no cooldown, begin api search
+			console.log("Searching for server data...");
+			searchWithAPI();
+
+	} else {
+//you didn't enter an ip :(
+			console.log("You didn't enter an IP :`(");
+
+	}
+
+} else { /*cooldown*/
+	console.log("That is on cooldown");
+	cooldownTooltip.style.opacity = 1;
+		setTimeout(function(){
+			cooldownTooltip.style.opacity = "0";
+		}, 1500);
+	}
+
+
+}
+
+
+
+search = "false";
+
+
+function searchWithAPI() {
+if (search = "true") {
+
+
+	console.log("search started");
+	    MinecraftAPI.getServerStatus(serverIP, function (err, status) {
+        if (err) {
+            return document.getElementById("ipResult").innerHTML = 'Error loading status';
+        }
+
+
+
+				function initServerData(serverIp,serverPort){
+		        fetch('https://mcapi.us/server/status?ip='+serverIP+'')
+		        .then(response => response.json())
+		        .then(data => handleServerStatus(data));
+
+		        function handleServerStatus(data){
+		            if(data.status=='error'){
+										console.log("search failed :(");
+		                console.log(data.error);
+		                return false;
+		            }
+		            const motd = document.getElementById("motdResult");
+		            motd.innerHTML = data.motd;
+								messageOfTheDay = data.motd;
+								console.log("motd loaded");
+
+								if (messageOfTheDay === '') {
+									motd.innerHTML = "server contains no or json-only motd"
+									console.log("seems like a JSON-only MOTD :(")
+								}
+
+		            const playerCounter = document.getElementById("playerResult");
+		            playerCounter.innerHTML = data.players.now;
+								console.log("player count loaded");
+
+		            const logo = document.getElementById("server-icon");
+		            logo.src = data.favicon;
+								console.log("server icon loaded");
+
+								showResults();
+
+								console.log("search finished");
+		        }
+		    }
+
+				document.getElementById("ipResult").innerHTML = serverIP;
+        document.querySelector('.serverUp').innerHTML = status.online ? 'online' : 'offline';
+
+				initServerData();
+    });
+
+	}
+}
+
+</script>
+
+<script>
+
+function showResults() {
+var resultContainer = document.getElementById("resultContainer");
+
+			resultContainer.style.display = "block";
+
+	   	setTimeout(function(){
+				resultContainer.style.opacity = "100";
+			}, 40);
+
+			//scroll to results
+
+				setTimeout(function(){
+					document.getElementById("resultContainer").scrollIntoView();
+				}, 80);
+}
+</script>
+
+
+		<script>
+
+window.onload = function() {
+	cooldown = "false";
+	console.log("%cServ-ify by WorldWidePixel, with thanks to mcapi.us", "color:black; font-size:20px; font-family:inter; font-weight:900; text-align:center;");
+  search = "false";
+
+}
+
+function copyIP() {
+	const inputText = document.querySelector('.nameput').value;
+	const copyText = `${inputText}`;
+	const textarea = document.createElement('textarea');
+	textarea.value = copyText;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	document.body.removeChild(textarea);
+
+	// Show the copy tooltip for 1.5 seconds
+	const copyIPTooltip = document.getElementById('copyTooltip');
+	copyTooltip.style.opacity = 1;
+	setTimeout(() => {
+		copyTooltip.style.opacity = 0;
+	}, 1500);
+}
+
+function copyResults() {
+	const inputText = document.querySelector('.nameput').value;
+	const copyText = `${inputText}`;
+	const textarea = document.createElement('resultTextArea');
+	textarea.value = copyText;
+	document.body.appendChild(textarea);
+	textarea.select();
+	document.execCommand('copy');
+	document.body.removeChild(textarea);
+
+	// Show the copy tooltip for 1.5 seconds
+	const copyResultsTooltip = document.getElementById('copyResultsTooltip');
+	copyResultsTooltip.style.opacity = 1;
+	setTimeout(() => {
+		copyResultsTooltip.style.opacity = 0;
+	}, 1500);
+}
+
+    function copyToClipboard() {
+      const inputText = document.querySelector('.nameput').value;
+      const copyText = `/nick ${inputText}`;
+      const textarea = document.createElement('textarea');
+      textarea.value = copyText;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+
+      // Show the copy tooltip for 1.5 seconds
+      const copyTooltip = document.getElementById('copyTooltip');
+      copyTooltip.style.opacity = 1;
+      setTimeout(() => {
+        copyTooltip.style.opacity = 0;
+      }, 1500);
+    }
+		</script>
+
+	</body>
+
+
+
+</html>
