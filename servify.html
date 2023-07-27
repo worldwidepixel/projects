@@ -2,6 +2,7 @@
 	<head>
 		<title>Serv-ify - find server info</title>
 		<link rel="icon" type="image/png" href="./servify.png">
+<!--		<script src="https://unpkg.com/@barba/core"></script> -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -315,9 +316,31 @@
 				color:white;
 			}
 
-	</style>
-	<body>
+			.switcher-container {
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				border-radius:100px;
+				background: linear-gradient(90deg, rgba(0,139,178,1) 0%, rgba(203,69,128,1) 100%);
+				padding:10px;
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				height:90px;
+			}
 
+			.simg {
+				height:90px;
+				transition-duration: 0.4s;
+			}
+			.simg:hover {
+				transition-duration: 0.4s;
+				filter: brightness(1.25);
+			}
+
+	</style>
+	<body data-barba="wrapper">
+
+
+<main id="mainPage" data-barba="container" data-barba-namespace="serv">
 		<center>
 		<h1 class="title">Serv-ify</h1>
 		<h1 class="subtitle">find server info, easily.</h1>
@@ -372,10 +395,46 @@
 		<h2 style="font-weight:500;"><img class="fimg" src="./servify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v2.0</a></h2>
 		</div>
 
+	</main>
+
+<!--Swap page area-->
+
+<div class="switcher-container">
+<a href="./servify.html"><img class="simg" src="./servify512.png"></a>
+<a href="./nameify.html"><img class="simg" src="./nameify512.png"></a>
+
+</div>
+
 </center>
 <!--MCAPI-->
 <script src="https://mcapi.us/scripts/minecraft.min.js"></script>
+<!--GSAP ANIMATION LIBRARY-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script> -->
+
+<!--Some barba.js stuff-->
+<!--
 <script>
+console.log("barba.js is working");
+barba.init({
+	transitions: [{
+    name: 'serv',
+		sync: true,
+		once() {},
+    leave() {},
+    enter() {},
+  }]
+})
+</script> -->
+
+<!--Actual page code-->
+
+<script>
+
+//switcher
+
+function alreadyHere() {
+	console.log("you are already here!");
+}
 
 function searchOnEnter(e){
  var key=e.keyCode || e.which;
