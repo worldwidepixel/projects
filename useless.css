@@ -1,0 +1,22 @@
+.serv-leave {
+  transform: (translateX(0));
+}
+.serv-leave-active {
+  transition: all 0.4s var(--easing)
+}
+.serv-leave-to {
+  transform: (translateX(100%));
+}
+
+.serv-enter {
+  transform: (translateX(100%));
+}
+.serv-enter-active{
+  transition: all 0.4s var(--easing)
+}
+.serv-enter-to {
+  transform: (translateX(0));
+  position: absolute;
+  top:0;
+  left:0;
+}

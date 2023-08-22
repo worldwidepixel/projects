@@ -11,6 +11,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
+		<meta name="description" content="Find Minecraft server information, easily.">
+		<meta name="keywords" content="Minecraft,Minecraft Server">
+		<meta name="author" content="WorldWidePixel">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	</head>
 	<style>
 	@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -127,31 +132,20 @@
 	}
 	.nameput {
 	  font-family:'Plus Jakarta Sans';
+		-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
 	  font-weight:bold;
 	  padding:10px;
 	  border-width:10px;
 	  border-radius:16px;
 	  border-color:#bec5d1;
 	  font-size:20px;
-	  border-style:solid;
+	  border-style:none;
 	  width:50%;
 	  transition-duration:0.4s;
 	      height:inherit;
 	}
-	.nameput:use {
-	  font-family:'Plus Jakarta Sans';
-	  font-weight:bold;
-	  padding:10px;
-	  border-width:10px;
-	  border-radius:16px;
-	  border-color:#a0a5ad;
-	  font-size:20px;
-	  border-style:solid;
-	  box-shadow:none;
-	  width:50%;
-	  height:inherit;
-	  transition-duration:0.4s;
-	}
+
 	.output {
 	  font-family:'Plus Jakarta Sans';
 	  font-weight:400;
@@ -169,6 +163,32 @@
 	    color:gray;
 	    text-align:left;
 	    }
+
+	.boringButton {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		padding:10px;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#bec5d1;
+		font-size:20px;
+		border-style:none;
+		transition-duration:0.4s;
+		-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		cursor: pointer;
+	}
+
+	.boringButton:hover {
+		font-size:23px;
+		background-color:#c3d3e6;
+	}
+
+	.boringButton:active {
+		font-size:22.5px;
+		background-color:#cdf7f7;
+	}
+
 	.colourfulButton {
 	  font-family:'Plus Jakarta Sans';
 	  font-weight:900;
@@ -257,7 +277,9 @@
 			padding:10px;
 			border-color:#c1d3e3;
 			border-width: 10px;
-			border-style:solid;
+			border-style:none;
+			-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+			box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
 			display: none;
 			opacity: 0;
 			transition-duration: 0.4s;
@@ -347,7 +369,7 @@
 
 
 		<div id="entry">
-	      <input placeholder="Enter server IP here" id="input" onkeypress="searchOnEnter(event)" class="nameput ipsearch" name="input" /> <button onclick="copyIP()" class="colourfulButton">Copy IP</button>
+	      <input placeholder="Enter server IP here" id="input" onkeypress="searchOnEnter(event)" class="nameput ipsearch" name="input" /> <button onclick="copyIP()" class="boringButton">Copy IP</button>
 	  </div>
 <p>special thanks to <a href="https://mcapi.us">mcapi.us</a> &bull; fifteen second cooldown on search</p>
 			<br>
@@ -365,8 +387,8 @@
 
 		<div class="copy-tooltip" id="copyTooltip">IP Copied!</div>
 
-			<button class="colourfulButton" onclick="searchIP()">Search</button>
-			<button class="colourfulButton" onclick="clearSearch()">Reset</button>
+			<button class="boringButton" onclick="searchIP()">Search</button>
+			<button class="boringButton" onclick="clearSearch()">Reset</button>
 
 
 		</div>
@@ -392,7 +414,7 @@
 
 		<div>
 		<br>
-		<h2 style="font-weight:500;"><img class="fimg" src="./servify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v2.0</a></h2>
+		<h2 style="font-weight:500;"><img class="fimg" src="./servify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v2.1</a></h2>
 		</div>
 
 	</main>
@@ -485,8 +507,15 @@ function searchIP() {
 
 			if (serverIP !== '') {
 //if no cooldown, begin api search
+
+//next, check if it is a test IP
+				if (serverIP !== 'example.com') {
 			console.log("Searching for server data...");
 			searchWithAPI();
+		} else {
+			console.log("Test IP entered");
+			showResults();
+		}
 
 	} else {
 //you didn't enter an ip :(

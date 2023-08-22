@@ -10,6 +10,10 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+		<meta name="description" content="Claim your style and format text in Minecraft, easily.">
+		<meta name="keywords" content="Minecraft,Minecraft Nickname, /nick, Minecraft formatting">
+		<meta name="author" content="WorldWidePixel">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	</head>
 	<style>
@@ -128,16 +132,18 @@
 	  border-radius:16px;
 	  border-color:#bec5d1;
 	  font-size:20px;
-	  border-style:solid;
+	  border-style:none;
 	  width:50%;
+		-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
 	  transition-duration:0.4s;
 	      height:inherit;
 	}
 	.nameput:use {
 	  font-family:'Plus Jakarta Sans';
 	  font-weight:bold;
-	  padding:10px;
-	  border-width:10px;
+	  padding:15px;
+	  border-width:15px;
 	  border-radius:16px;
 	  border-color:#a0a5ad;
 	  font-size:20px;
@@ -147,6 +153,30 @@
 	  height:inherit;
 	  transition-duration:0.4s;
 	}
+	.boringButton {
+		font-family:'Plus Jakarta Sans';
+		font-weight:900;
+		padding:10px;
+		border-width:10px;
+		border-radius:16px;
+		border-color:#bec5d1;
+		font-size:20px;
+		border-style:none;
+		transition-duration:0.4s;
+		-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		cursor: pointer;
+	}
+
+	.boringButton:hover {
+		font-size:23px;
+		background-color:#c3d3e6;
+	}
+
+	.boringButton:active {
+		font-size:22.5px;
+		background-color:#cdf7f7;
+	}
 	.output {
 	  font-family:'Plus Jakarta Sans';
 	  font-weight:400;
@@ -155,7 +185,9 @@
 	  border-radius:16px;
 	  border-color:#bec5d1;
 	  font-size:20px;
-	  border-style:solid;
+	  border-style:none;
+		-webkit-box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
+		box-shadow: 0px 0px 15px -6px rgba(0,0,0,0.63);
 	  width:50%;
 	  transition-duration:0.4s;
 	  height:inherit;
@@ -275,14 +307,14 @@
 		  </div>
 	<!--		<button class="copy" onclick="copyToClipboard()">Copy for /nick command</button> -->
 	<center>
-	    <button class="copy" onclick="copyToClipboard()">Copy with /nick</button>
+	    <button class="boringButton" onclick="copyToClipboard()">Copy with /nick</button>
     <div class="copy-tooltip" id="copyTooltip">Text Copied!</div>
 		</div>
 
 
 		<div>
 		<br>
-		<h2 style="font-weight:500;"><img class="fimg" src="./nameify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v3.0</a></h2>
+		<h2 style="font-weight:500;"><img class="fimg" src="./nameify512.png">&nbsp;made by <a href="https://beta.worldwidepixel.ca">worldwidepixel</a> &bull; <a style="font-weight:100">v3.1</a></h2>
 		</div>
 
 </center>
